@@ -1,6 +1,6 @@
-* {
+/** {
   border: 1px solid black;
-}
+}*/
 h1 a img{
   width: 99%;
 }
@@ -16,7 +16,7 @@ h1{
 
 }
 body {
-  background-color: #f43333;
+  background-color: #ddd;
 }
 
 a {
@@ -55,8 +55,24 @@ section img {
   max-width: 40%;
   border-radius: 100%;
 }
-footer {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+#pokeTypes li{
+  border: 1px solid black;
+  padding: 5px;
+}
+ul li{
+  list-style: none;
+  display: inline-block;
+}
+
+.stats {
+  margin-right: 2em;
+}
+
+footer a{
+  display: block;
+  text-align: center;
+}
+#pokedex {
+  margin: 0 auto;
+  display: inline-block;
 }
