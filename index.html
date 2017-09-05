@@ -5,7 +5,35 @@
     <title>PokeDex Web App</title>
     <link href="style/style.css" type="text/css" rel="stylesheet" />
     <link rel="shortcut icon" href="style/indeximg/favicondex.png" type="image/x-icon">
-    </head>
+
+    <script id="pokedexTemplate" type="text/x-handlebars-template">
+      <h2 id="pokeName">{{pokeName}}</h2>
+
+      <ul id="pokeTypes">Types
+
+      </ul>
+
+      <ul id="pokeStats">
+        <li id="hp">HP: {{pokeHP}}</li>
+        <li id="atk">Attack: {{pokeAtk}}</li>
+        <li id="def">Defence: {{pokeDef}}</li>
+        <li id="specialAtk">Special Attack: {{pokeSpecialAtk}}</li>
+        <li id="specialDef">Special Defence: {{pokeSpecialDef}}</li>
+        <li id="speed">Speed: {{pokeSpeed}}</li>
+      </ul>
+
+      <img id="pokeSprite" src={{pokeSprite}} />
+
+      <p id="pokeDescription">{{pokeDescription}}</p>
+
+      <ul id="pokeSize">
+        <li id="height">{{height}}</li>
+        <li id="weight">{{weight}}</li>
+      </ul>
+    </script>
+
+  </head>
+
   <body>
     <header>
       <h1><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/170905/985f7300bf85a3711b987992311307c2.png" alt="pokemon-font" border="0"></a></h1>
