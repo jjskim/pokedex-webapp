@@ -17,12 +17,12 @@ let pokemonDescription;
 
   const pokemon = {};
 
-$.ajax({
+  $.ajax({
     url: 'https://pokeapi.co/api/v2/generation/1/',
     method: 'GET',
     success: function(data) {
         returnData = data;
     }
-});
+  });
 
 });
