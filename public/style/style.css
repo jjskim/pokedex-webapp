@@ -1,4 +1,10 @@
+<<<<<<< HEAD:public/style/style.css
 /** {
+=======
+
+
+* {
+>>>>>>> master:style/style.css
   border: 1px solid black;
 }*/
 h1 a img{
@@ -15,6 +21,7 @@ h1{
   border-width: thick;
 
 }
+
 body {
   background-color: #ddd;
 }
