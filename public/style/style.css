@@ -1,16 +1,12 @@
-<<<<<<< HEAD:public/style/style.css
 /** {
-=======
-
-
-* {
->>>>>>> master:style/style.css
   border: 1px solid black;
 }*/
-h1 a img{
+
+h1 a img {
   width: 99%;
 }
-h1{
+
+h1 {
   margin: 0 auto;
   background-color: #f4ee44;
   max-width: 60%;
@@ -19,7 +15,10 @@ h1{
   margin-bottom: 1%;
   border-style: ridge;
   border-width: thick;
+}
 
+h2 {
+  text-align: center;
 }
 
 body {
@@ -34,7 +33,6 @@ a {
 
 header {
   text-align: center;
-
 }
 
 div input {
@@ -53,20 +51,29 @@ div input {
   border-width: thick;
 }
 
-#poke-search[type="text"]{
+#poke-search[type="text"] {
   font-size: 3.0em;
   text-align: center;
   color: grey;
 }
+
 section img {
-  max-width: 40%;
+  max-width: 30%;
   border-radius: 100%;
+  float: right;
 }
-#pokeTypes li{
+
+#pokeSprite img{
+  display: block;
+  margin: 0 auto;
+}
+
+#pokeTypes li {
   border: 1px solid black;
   padding: 5px;
 }
-ul li{
+
+ul li {
   list-style: none;
   display: inline-block;
 }
@@ -75,11 +82,18 @@ ul li{
   margin-right: 2em;
 }
 
-footer a{
+#pokeDescription {
+  margin-top: 1em;
+  margin-right: 7em;
+  float: right;
+  max-width: 25%;
+}
+
+footer a {
   display: block;
   text-align: center;
 }
+
 #pokedex {
-  margin: 0 auto;
   display: inline-block;
 }
