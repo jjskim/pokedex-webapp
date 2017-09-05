@@ -1,0 +1,38 @@
+/** {
+  border: 1px solid black;
+}*/
+
+body {
+  background-color: red;
+}
+
+a {
+  display: block;
+  margin-right: 1%;
+  text-align: right;
+}
+
+header {
+  text-align: center;
+  border: 1px solid black;
+}
+
+div input {
+  display: block;
+  margin: 0 auto;
+  border-radius: 1em;
+}
+
+#poke-search {
+  width: 50%;
+  height: 2em;
+  background-color: black;
+  margin-bottom: 0.5em;
+  outline: none;
+}
+
+#poke-search[type="text"] {
+  font-size: 3.5em;
+  text-align: center;
+  color: grey;
+}
