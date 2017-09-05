@@ -95,19 +95,19 @@ header img:hover{
 
 /*--- Face Clicking buttons ---*/
 #faceClick1{
-  /*border: 3px dashed red;*/
+  border: 3px dashed red;
   height: 20%;
   width: 15%;
   cursor: pointer;
 }
 #faceClick2{
-  /*border: 3px dashed red;*/
+  border: 3px dashed red;
   height: 20%;
   width: 15%;
   cursor: pointer;
 }
 #faceClick3{
-  /*border: 3px dashed red;*/
+  border: 3px dashed red;
   height: 20%;
   width: 15%;
   cursor: pointer;
@@ -116,6 +116,9 @@ header img:hover{
   #faceClick1{
     height: 80px;
     width: 60px;
+    position: absolute;
+    top: 190px;
+    left: 170px;
   }
   #faceClick2{
     height: 80px;
