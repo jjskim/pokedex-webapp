@@ -1,0 +1,48 @@
+/** {
+  border: 1px solid black;
+}*/
+h1 a img{
+  width: 99%;
+}
+h1{
+  margin: 0 auto;
+  background-color: #f4ee44;
+  max-width: 60%;
+  border-radius: 1em;
+  pointer-events: none;
+
+}
+body {
+  background-color: #f43333;
+}
+
+a {
+  display: block;
+  margin-right: 1%;
+  text-align: right;
+}
+
+header {
+  text-align: center;
+
+}
+
+div input {
+  display: block;
+  margin: 0 auto;
+  border-radius: 1em;
+  outline: none;
+}
+
+#poke-search {
+  width: 50%;
+  height: 2em;
+  background-color: black;
+  margin-bottom: 0.5em;
+}
+
+#poke-search[type="text"]{
+  font-size: 3.0em;
+  text-align: center;
+  color: grey;
+}
