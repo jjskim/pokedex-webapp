@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Bangers);
 @import url(https://fonts.googleapis.com/css?family=Arimo);
 
+/* MAKE THE POKELOGO MAX-WIDTH TO STOP MOVING IF THE PAGE GOES PAST 1200px */
+
 body{
   max-width: 1300px;
   background: #ddd;
@@ -35,7 +37,13 @@ header img:hover{
     display: none;
   }
 }
-/* Make below 160px*/
+@media screen and (min-width: 1200px) {
+  #pokeLogo{
+    position: absolute;
+    left: 320px;
+  }
+}
+/* below 160px */
 @media screen and (max-width: 160px) {
   header img{
     width: 90px;
@@ -114,6 +122,8 @@ b{
   font-size: 2em;
   color: #1b60f7;
   font-family: 'Bangers';
+  -webkit-text-stroke-width: .3px;
+  -webkit-text-stroke-color: yellow;
 }
 
 /* Icon*/
@@ -405,11 +415,19 @@ b{
       left: 750px;
     }
   }
-
-  footer img{
+  footer{
     height: 100px;
     width: 89%;
-    min-width: 350px;
+    background-image: url("aboutImg/footerGrass.png");
     margin-left: 20px;
     margin-right: 20px;
+    overflow: hidden
+  }
+  footer img{
+    height: 95px;
+    width: 95px;
+    padding-left: 15px;
+  }
+  #animate {
+    position: relative;
   }
