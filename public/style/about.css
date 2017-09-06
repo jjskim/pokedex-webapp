@@ -23,6 +23,18 @@ header img{
 header img:hover{
   cursor: pointer;
 }
+#pokeLogo{
+  width: 350px;
+  height: 80px;
+  padding-left: 105px;
+  position: absolute;
+  right: 40%;
+}
+@media screen and (max-width: 850px) {
+  #pokeLogo{
+    display: none;
+  }
+}
 /* Make below 160px*/
 @media screen and (max-width: 160px) {
   header img{
@@ -31,7 +43,6 @@ header img:hover{
     margin-top: 25px;
   }
 }
-
 .carousel{
   width: 99%;
   margin-top: 5px;
