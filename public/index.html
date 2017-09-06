@@ -1,83 +1,78 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <title>PokeDex Web App</title>
-  <link href="style/style.css" type="text/css" rel="stylesheet" />
-  <link rel="shortcut icon" href="style/indeximg/favicondex.png" type="image/x-icon">
-
-  <script id="pokedexTemplate" type="text/x-handlebars-template">
-    <h2 id="pokeName">{{pokeName}}</h2>
-
-    <ul id="pokeTypes">Types
-
-    </ul>
-
-    <ul id="pokeStats">
-      <li id="hp">HP: {{pokeHP}}</li>
-      <li id="atk">Attack: {{pokeAtk}}</li>
-      <li id="def">Defence: {{pokeDef}}</li>
-      <li id="specialAtk">Special Attack: {{pokeSpecialAtk}}</li>
-      <li id="specialDef">Special Defence: {{pokeSpecialDef}}</li>
-      <li id="speed">Speed: {{pokeSpeed}}</li>
-    </ul>
-
-    <img id="pokeSprite" src={{pokeSprite}} />
-
-    <!-- <p id="pokeDescription">{{pokeDescription}}</p> -->
-
-    <ul id="pokeSize">
-      <li id="height">{{height}}</li>
-      <li id="weight">{{weight}}</li>
-    </ul>
-  </script>
-
-</head>
-
-<body>
-  <header>
-    <h1><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/170905/985f7300bf85a3711b987992311307c2.png" alt="pokemon-font" border="0"></a></h1>
-  </header>
-
-  <form>
-    <div>
-      <input type="text" id="poke-search" placeholder="Search Pokemon" required>
-    </div>
-    <div>
-      <input type="submit" value="Search Your Pokemon" />
-    </div>
-  </form>
-  <section>
-    <img src="style/indeximg/pokeball.gif" alt="Pokeball" />
-  </section>
-
-  <div id="pokedex">
-
-    <h2 id="pokeName">Searched Pokemon</h2>
-
-<div id="pokeSprite">
-      <img   src="http://via.placeholder.com/150x150" alt="pokemon sprite" />
-</div>
-
-    <ul id="pokeTypes">
+  <head>
+    <meta charset="utf-8">
+    <title>PokeDex Web App</title>
+    <link href="style/style.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="style/indeximg/favicondex.png" type="image/x-icon">
+    <script id="pokedexTemplate" type="text/x-handlebars-template">
+      <h2 id="pokeName">{{pokeName}}</h2>
+      <div>
+        <img id="pokeSprite" src={{pokeSprite}} />
+      </div>
       <h3>Type</h3>
-      <li>Grass</li>
-      <li>Poison</li>
-    </ul>
-
-    <ul id="pokeStats">
+      <ul id="pokeTypes">
+      </ul>
       <h3>Stats</h3>
-      <li class="stats" id="hp">HP:</li>
-      <li class="stats" id="atk">Attack:</li>
-      <li class="stats" id="def">Defence:</li>
-      <br></br>
-      <li class="stats" id="specialAtk">Special Attack:</li>
-      <li class="stats" id="specialDef">Special Defense:</li>
-      <li class="stats" id="speed">Speed:</li>
-    </ul>
+      <ul id="pokeStats">
+        <li class="stats" id="hp">HP: {{pokeHP}}</li>
+        <li class="stats" id="atk">Attack: {{pokeAtk}}</li>
+        <li class="stats" id="def">Defence: {{pokeDef}}</li>
+        <br />
+        <li class="stats" id="specialAtk">Special Attack: {{pokeSpecialAtk}}</li>
+        <li class="stats" id="specialDef">Special Defence: {{pokeSpecialDef}}</li>
+        <li class="stats" id="speed">Speed: {{pokeSpeed}}</li>
+      </ul>
+      <!-- <p id="pokeDescription">{{pokeDescription}}</p> -->
+      <ul id="pokeSize">
+        <li id="height">{{height}}</li>
+        <li id="weight">{{weight}}</li>
+      </ul>
+    </script>
+  </head>
 
-  </div>
+  <body>
+    <header>
+      <h1><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/170905/985f7300bf85a3711b987992311307c2.png" alt="pokemon-font" border="0"></a></h1>
+    </header>
+
+    <form>
+      <div>
+        <input type="text" id="poke-search" placeholder="Search Pokemon" required>
+      </div>
+      <div>
+        <button type="submit" id="search">Search!</button>
+        <!-- <input type="submit" id="search" value="Search Your Pokemon" /> -->
+      </div>
+    </form>
+    <section>
+      <img src="style/indeximg/pokeball.gif" alt="pokeball" />
+    </section>
+
+    <div id="pokedex">
+    </div>
+
+    <!-- <div id="pokedex">
+      <h2 id="pokeName">Searched Pokemon</h2>
+      <div id="pokeSprite">
+        <img src="http://via.placeholder.com/150x150" alt="pokemon-sprite" />
+      </div>
+      <ul id="pokeTypes">
+        <h3>Type</h3>
+        <li>Grass</li>
+        <li>Poison</li>
+      </ul>
+      <ul id="pokeStats">
+        <h3>Stats</h3>
+        <li class="stats" id="hp">HP:</li>
+        <li class="stats" id="atk">Attack:</li>
+        <li class="stats" id="def">Defence:</li>
+        <br />
+        <li class="stats" id="specialAtk">Special Attack:</li>
+        <li class="stats" id="specialDef">Special Defense:</li>
+        <li class="stats" id="speed">Speed:</li>
+      </ul>
+    </div>
     <section id="pokeDescription">
       <h3>Description</h3>
 
@@ -85,29 +80,28 @@
 
       <ul id="pokeSize">
         <li id="height">Height:</li>
-        <br></br>
+        <br />
         <li id="weight">Weight:</li>
       </ul>
-    </section>
+    </section> -->
 
-
-  <footer>
-    <a href="about.html">About Us</a>
-  </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- <script src="/vendor/scripts/handlebars.js"></script> -->
-  <!-- <script src="/vendor/scripts/marked.js"></script> -->
-  <!-- <script src="vendor/scripts/highlight.pack.js"></script> -->
-  <!-- <script src="/vendor/scripts/page.js"></script> -->
-
-  <script src="/scripts/models/pokedex.js"></script>
-  <!-- <script src="/scripts/views/home.js"></script> -->
-  <!-- <script src="/scripts/controllers/articleController.js"></script> -->
-  <!-- <script src="/scripts/models/repo.js"></script> -->
-  <!-- <script src="/scripts/views/repoView.js"></script> -->
-  <!-- <script src="/scripts/controllers/aboutController.js"></script> -->
-  <!-- <script src="/scripts/controllers/routes.js"></script> -->
-
-</body>
-
+    <footer>
+      <a href="about.html">About Us</a>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="vendor/scripts/handlebars.js"></script>
+    <script src="vendor/scripts/page.js"></script>
+    <script src="scripts/models/pokedex.js"></script>
+    <script>
+      app.pokemon.getPokemonName();
+    </script>
+    <!-- <script src="/vendor/scripts/marked.js"></script> -->
+    <!-- <script src="vendor/scripts/highlight.pack.js"></script> -->
+    <!-- <script src="/scripts/views/home.js"></script> -->
+    <!-- <script src="/scripts/controllers/articleController.js"></script> -->
+    <!-- <script src="/scripts/models/repo.js"></script> -->
+    <!-- <script src="/scripts/views/repoView.js"></script> -->
+    <!-- <script src="/scripts/controllers/aboutController.js"></script> -->
+    <!-- <script src="/scripts/controllers/routes.js"></script> -->
+  </body>
 </html>

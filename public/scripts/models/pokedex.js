@@ -2,8 +2,7 @@
 
 var app = app || {};
 
-let requestURL = "https://pokeapi.co/api/v2/pokemon/" // Base URL of the pokemon we are requesting
-
+let requestURL = "https://pokeapi.co/api/v2/pokemon/1" // Base URL of the pokemon we are requesting
 let requestedPokemon;
 let returnData;
 let pokemonName;
@@ -18,18 +17,18 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
 
   const pokemon = {};
 
-
   pokemon.getPokemonName = function() {
-    $('#poke-search').on('submit', function() {
+    $('#search').on('submit', function() {
+      // console.log('hello');
       requestedPokemon = $('#poke-search').val();
       pokemon.getPokemonInfo(requestedPokemon);
     });
-  }
+  };
 
   pokemon.getPokemonInfo = function(pokemonName) {
-
+    // console.log('sending the request');
     $.ajax({
-      url: 'https://pokeapi.co/api/v2/pokemon/1/',
+      url: requestURL,
       method: 'GET',
       success: function(data) {
         returnData = data;
@@ -37,25 +36,25 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
       }
     });
 
-  }
+  };
 
   pokemon.loadPokemonInfo = function(returnData) {
     pokemonName = returnData.name;
     pokemonSprite = returnData.sprites.front_default;
     for (let i = 0; i < returnData.types.length; i++) {
-      pokemontype.push(returnData.types[i].type.name);
+      pokemonType.push(returnData.types[i].type.name);
     }
     pokemonHeight = returnData.height;
     pokemonWeight = returnData.weight;
     for (let j = 0; j < returnData.stats.length; j++) {
       pokemonStats.push(returnData.stats[j].base_stat);
     }
-
     pokemon.makePokedex();
-  }
+  };
 
   pokemon.makePokedex = function() {
     let info = {
+      pokeName: pokemonName,
       pokeHp: pokemonStats[5],
       pokeAtk: pokemonStats[4],
       pokeDef: pokemonStats[3],
@@ -70,7 +69,7 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
     $('main').hide();
     $('#pokedex').fadeIn();
 
-  }
+  };
 
   module.pokemon = pokemon;
 
