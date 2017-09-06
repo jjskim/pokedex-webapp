@@ -1,9 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+@import url(https://fonts.googleapis.com/css?family=Arimo);
+
 body{
- max-width: 100%;
- background: #ddd;
+  max-width: 1300px;
+  background: #ddd;
 }
-/* @media at certain px to keep image a specific size*/
-/* when clicking on specific face, .hide carousel and display  */
 
 header{
   width: 89%;
@@ -53,30 +54,30 @@ header img:hover{
   /*border-bottom: 1px dotted black;*/
 }
 .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 400px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 100;
-    bottom: -100%;
-    left: 0%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 1s;
+  visibility: hidden;
+  width: 400px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 100;
+  bottom: -100%;
+  left: 0%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
 }
 .tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 15%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 15%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;
@@ -92,248 +93,312 @@ header img:hover{
   transform:scale(1.3);
   cursor: help;
 }
-
-/*--- Face Clicking buttons ---*/
-#faceClick1{
-  /*border: 3px dashed red;*/
-  height: 20%;
-  width: 15%;
-  cursor: pointer;
-}
-#faceClick2{
-  /*border: 3px dashed red;*/
-  height: 20%;
-  width: 15%;
-  cursor: pointer;
-}
-#faceClick3{
-  /*border: 3px dashed red;*/
-  height: 20%;
-  width: 15%;
-  cursor: pointer;
-}
-@media screen and (max-width: 400px) {
-  #faceClick1{
-    height: 80px;
-    width: 60px;
-    position: absolute;
-    top: 180px;
-    left: 180px;
-  }
-  #faceClick2{
-    height: 80px;
-    width: 60px;
-    position: absolute;
-    top: 130px;
-    left: 90px;
-  }
-  #faceClick3{
-    height: 80px;
-    width: 60px;
-    position: absolute;
-    top: 130px;
-    left: 250px;
-  }
-}
-
-@media screen and (min-width: 400px) {
-  #faceClick1{
-    height: 13%;
-    position: absolute;
-    bottom: 56%;
-    left: 41%;
-  }
-  #faceClick2{
-    height: 13%;
-    position: absolute;
-    bottom: 66%;
-    left: 20%;
-  }
-  #faceClick3{
-    height: 13%;
-    position: absolute;
-    bottom: 66%;
-    left: 62%;
-  }
-}
-@media screen and (min-width 450px) {
-  #faceClick1{
-    height: 13%;
-    position: absolute;
-    bottom: 55%;
-    left: 40%;
-  }
-  #faceClick2{
-    height: 13%;
-  }
-  #faceClick3{
-    height: 13%;
-  }
-}
-@media screen and (min-width: 500px) {
-  #faceClick1{
-    height: 15%;
-    position: absolute;
-    bottom: 50%;
-    left: 40%;
-  }
-  #faceClick2{
-    height: 15%;
-    position: absolute;
-    bottom: 64%;
-    left: 20%;
-  }
-  #faceClick3{
-    height: 15%;
-    position: absolute;
-    bottom: 64%;
-    left: 60%;
-  }
-}
-@media screen and (min-width: 580px) {
-  #faceClick1{
-    height: 20%;
-    position: absolute;
-    bottom: 46%;
-    left: 40%;
-  }
-  #faceClick2{
-    position: absolute;
-    bottom: 59%;
-    left: 20%;
-  }
-  #faceClick3{
-    position: absolute;
-    bottom: 59%;
-    left: 60%;
-  }
-}
-@media screen and (min-width: 670px) {
-  #faceClick1{
-    height: 23%;
-    position: absolute;
-    bottom: 43%;
-    left: 40%;
-  }
-}
-
-@media screen and (min-width: 700px) {
-  #faceClick1{
-    height: 23%;
-    position: absolute;
-    bottom: 37%;
-    left: 40%;
-  }
-  #faceClick2{
-    position: absolute;
-    bottom: 55%;
-    left: 20%;
-  }
-  #faceClick3{
-    position: absolute;
-    bottom: 55%;
-    left: 60%;
-  }
-}
-@media screen and (min-width: 780px) {
-  #faceClick1{
-    height: 23%;
-    position: absolute;
-    bottom: 35%;
-    left: 40%;
-  }
-}
-/* above 820px*/
-@media screen and (min-width: 820px) {
-  #faceClick1{
-    position: absolute;
-    bottom: 30%;
-    left: 40%;
-  }
-  #faceClick2{
-    position: absolute;
-    bottom: 50%;
-    left: 20%;
-  }
-  #faceClick3{
-    position: absolute;
-    bottom: 50%;
-    left: 60%;
-  }
-}
-@media screen and (min-width: 900px) {
-  #faceClick1{
-    height:30%;
-    position: absolute;
-    bottom: 25%;
-    left: 39%;
-  }
-  #faceClick2{
-    height:30%;
-    position: absolute;
-    bottom: 45%;
-    left: 20%;
-  }
-  #faceClick3{
-    height:30%;
-    position: absolute;
-    bottom: 45%;
-    left: 60%;
-  }
-}
-@media screen and (min-width: 1000px) {
-  #faceClick1{
-    height:30%;
-    position: absolute;
-    bottom: 20%;
-    left: 39%;
-  }
-  #faceClick2{
-    height:30%;
-    position: absolute;
-    bottom: 40%;
-    left: 20%;
-  }
-  #faceClick3{
-    height:30%;
-    position: absolute;
-    bottom: 40%;
-    left: 60%;
-  }
-}
-@media screen and (min-width: 1100px) {
-  #faceClick1{
-    height:30%;
-    position: absolute;
-    bottom: 15%;
-    left: 39%;
-  }
-}
-@media screen and (min-width: 1200px) {
-  #faceClick1{
-    height:40%;
-    position: absolute;
-    bottom: 0%;
-    left: 39%;
-  }
-  #faceClick2{
-    height:30%;
-    position: absolute;
-    bottom: 30%;
-    left: 20%;
-  }
-  #faceClick3{
-    height:30%;
-    position: absolute;
-    bottom:30%;
-    left: 60%;
-  }
-}
-
-footer img{
-  height: 100px;
+#face1Data, #face2Data, #face3Data{
   width: 89%;
-  min-width: 350px;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-left: 5px;
+  font-family: 'Arimo';
+  font-size: 1.2em;
 }
+b{
+  font-size: 2em;
+  color: #1b60f7;
+  font-family: 'Bangers';
+}
+
+/* Icon*/
+/*.icon {
+  position: relative;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+
+  margin: 25px 0 25px 25px;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  font-size: 12px;
+  font-family: sans-serif;
+}*/
+
+/* The "shine" element*/
+/*.icon:after {
+  content: "";
+  position: absolute;
+  top: -110%;
+  left: -210%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(30deg);
+
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0.0) 100%
+    );
+  }*/
+  /* Hover state - trigger effect */
+  /*.icon:hover:after {
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }*/
+  /* Active state */
+  /*.icon:active:after {
+    opacity: 0;
+  }*/
+
+  /*--- Face Clicking buttons ---*/
+  #faceClick1{
+    border-radius: 20px;
+    /*border: 3px dashed red;*/
+    height: 20%;
+    width: 15%;
+    cursor: pointer;
+  }
+  #faceClick2{
+    /*border: 3px dashed red;*/
+    height: 20%;
+    width: 15%;
+    cursor: pointer;
+  }
+  #faceClick3{
+    /*border: 3px dashed red;*/
+    height: 20%;
+    width: 15%;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 400px) {
+    #faceClick1{
+      height: 80px;
+      width: 60px;
+      position: absolute;
+      top: 180px;
+      left: 145px;
+    }
+    #faceClick2{
+      height: 80px;
+      width: 60px;
+      position: absolute;
+      top: 120px;
+      left: 70px;
+    }
+    #faceClick3{
+      height: 80px;
+      width: 60px;
+      position: absolute;
+      top: 120px;
+      left: 230px;
+    }
+  }
+
+  @media screen and (min-width: 400px) {
+    #faceClick1{
+      height: 13%;
+      position: absolute;
+      bottom: 56%;
+      left: 37%;
+    }
+    #faceClick2{
+      height: 13%;
+      position: absolute;
+      bottom: 66%;
+      left: 17%;
+    }
+    #faceClick3{
+      height: 13%;
+      position: absolute;
+      bottom: 66%;
+      left: 58%;
+    }
+  }
+  @media screen and (min-width 450px) {
+    #faceClick1{
+      height: 13%;
+      position: absolute;
+      bottom: 47%;
+      left: 40%;
+    }
+    #faceClick2{
+      height: 13%;
+    }
+    #faceClick3{
+      height: 13%;
+    }
+  }
+  @media screen and (min-width: 500px) {
+    #faceClick1{
+      height: 15%;
+      position: absolute;
+      bottom: 50%;
+      left: 36%;
+    }
+    #faceClick2{
+      height: 15%;
+      position: absolute;
+      bottom: 62%;
+      left: 17%;
+    }
+    #faceClick3{
+      height: 15%;
+      position: absolute;
+      bottom: 60%;
+      left: 57%;
+    }
+  }
+  @media screen and (min-width: 580px) {
+    #faceClick1{
+      height: 20%;
+      position: absolute;
+      bottom: 44%;
+      left: 37%;
+    }
+    #faceClick2{
+      position: absolute;
+      bottom: 59%;
+      left: 18%;
+    }
+    #faceClick3{
+      position: absolute;
+      bottom: 57%;
+      left: 57%;
+    }
+  }
+  @media screen and (min-width: 670px) {
+    #faceClick1{
+      height: 23%;
+      position: absolute;
+      bottom: 40%;
+      left: 36%;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    #faceClick1{
+      height: 23%;
+      position: absolute;
+      bottom: 37%;
+      left: 37%;
+    }
+    #faceClick2{
+      position: absolute;
+      bottom: 55%;
+      left: 18%;
+    }
+    #faceClick3{
+      position: absolute;
+      bottom: 55%;
+      left: 57%;
+    }
+  }
+  @media screen and (min-width: 780px) {
+    #faceClick1{
+      height: 23%;
+      position: absolute;
+      bottom: 33%;
+      left: 37%;
+    }
+  }
+  /* above 820px*/
+  @media screen and (min-width: 820px) {
+    #faceClick1{
+      position: absolute;
+      bottom: 30%;
+      left: 37%;
+    }
+    #faceClick2{
+      position: absolute;
+      bottom: 50%;
+      left: 18%;
+    }
+    #faceClick3{
+      position: absolute;
+      bottom: 50%;
+      left: 57%;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    #faceClick1{
+      height:30%;
+      position: absolute;
+      bottom: 23%;
+      left: 36%;
+    }
+    #faceClick2{
+      height:30%;
+      position: absolute;
+      bottom: 45%;
+      left: 17%;
+    }
+    #faceClick3{
+      height:30%;
+      position: absolute;
+      bottom: 45%;
+      left: 57%;
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    #faceClick1{
+      height:30%;
+      position: absolute;
+      bottom: 20%;
+      left: 39%;
+    }
+    #faceClick2{
+      height:30%;
+      position: absolute;
+      bottom: 40%;
+      left: 20%;
+    }
+    #faceClick3{
+      height:30%;
+      position: absolute;
+      bottom: 40%;
+      left: 60%;
+    }
+  }
+  @media screen and (min-width: 1100px) {
+    #faceClick1{
+      height:30%;
+      position: absolute;
+      bottom: 15%;
+      left: 37%;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    #faceClick1{
+      height: 350px;
+      position: absolute;
+      bottom: 0px;
+      left: 480px;
+    }
+    #faceClick2{
+      height: 350px;
+      position: absolute;
+      bottom: 200px;
+      left: 200px;
+    }
+    #faceClick3{
+      height: 350px;
+      position: absolute;
+      bottom: 200px;
+      left: 750px;
+    }
+  }
+
+  footer img{
+    height: 100px;
+    width: 89%;
+    min-width: 350px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
