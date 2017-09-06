@@ -63,3 +63,17 @@ $('#faceClick3' ).on('click', function(e) {
   $( '#backButton' ).show('fast');
   $( '#face3Data' ).show('fast');
 });
+
+$(function() {
+  var img = $("#animate"),
+  width = img.get(0).width,
+  screenWidth = $(window).width(),
+  duration = 4000;
+
+  function animatePlane() {
+    img.css("left", -width).animate({
+      "left": screenWidth
+    }, duration, animatePlane);
+  }
+  animatePlane();
+});
