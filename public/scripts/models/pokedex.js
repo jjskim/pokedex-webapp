@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-let requestURL = "https://pokeapi.co/api/v2/pokemon/1" // Base URL of the pokemon we are requesting
+let requestURL = "https://pokeapi.co/api/v2/pokemon/" // Base URL of the pokemon we are requesting
 let requestedPokemon;
 let returnData;
 let pokemonName;
@@ -18,14 +18,17 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
   const pokemon = {};
 
   pokemon.getPokemonName = function() {
-    $('#search').on('submit', function() {
-      // console.log('hello');
+    console.log('hello outside');
+    $('#search').on('click', function(e) {
+      e.preventDefault();
+      console.log('hello inside');
       requestedPokemon = $('#poke-search').val();
-      pokemon.getPokemonInfo(requestedPokemon);
+      requestURL += requestedPokemon;
+      pokemon.getPokemonInfo(requestURL);
     });
   };
 
-  pokemon.getPokemonInfo = function(pokemonName) {
+  pokemon.getPokemonInfo = function(requestURL) {
     // console.log('sending the request');
     $.ajax({
       url: requestURL,
