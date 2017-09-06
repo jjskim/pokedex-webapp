@@ -71,7 +71,7 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
       weight: pokemonWeight
     };
     var template = Handlebars.compile($('#pokedexTemplate').html())(info);
-    $('#pokedex').append(template);
+    $('#pokedex').prepend(template);
     $('main').hide();
     $('#pokedex').fadeIn();
 

@@ -1,6 +1,6 @@
-* {
+/** {
   border: 1px solid black;
-}
+}*/
 
 h1 a img {
   width: 99%;
@@ -66,7 +66,7 @@ button {
 section img {
   max-width: 30%;
   border-radius: 100%;
-  float: right;
+  /*float: right;*/
 }
 
 #pokeSprite img{
@@ -100,9 +100,8 @@ footer a {
   text-align: center;
 }
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  background-image: url(aboutImg/footerGrass.png);
+  height: 30px;
 }
 
 #pokeName {
@@ -110,5 +109,13 @@ footer {
 }
 #pokeDiv {
   display: inline-block;
-  margin: 0 auto;
+  margin-left: 15%;
+  width: 30%;
+}
+@media screen and (max-width: 686px){
+  #pokeDiv {
+    display: block;
+    margin: 0 auto;
+    min-width: 300px;
+  }
 }
