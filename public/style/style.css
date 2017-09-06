@@ -97,3 +97,6 @@ footer a {
 #pokedex {
   display: inline-block;
 }
+#pokeName {
+  text-transform: capitalize;
+}

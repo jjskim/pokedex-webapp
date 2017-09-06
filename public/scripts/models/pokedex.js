@@ -22,7 +22,7 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
     $('#search').on('click', function(e) {
       e.preventDefault();
       console.log('hello inside');
-      requestedPokemon = $('#poke-search').val();
+      requestedPokemon = $('#poke-search').val().toLowerCase();
       requestURL += requestedPokemon;
       pokemon.getPokemonInfo(requestURL);
     });
@@ -58,12 +58,14 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
   pokemon.makePokedex = function() {
     let info = {
       pokeName: pokemonName,
+      pokeSprite: pokemonSprite,
       pokeHp: pokemonStats[5],
       pokeAtk: pokemonStats[4],
       pokeDef: pokemonStats[3],
       pokeSpecialAtk: pokemonStats[2],
       pokeSpecialDef: pokemonStats[1],
       pokeSpeed: pokemonStats[0],
+      pokeTypes: pokemonType,
       height: pokemonHeight,
       weight: pokemonWeight
     };
