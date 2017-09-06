@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-let requestURL = "https://pokeapi.co/api/v2/pokemon/" // Base URL of the pokemon we are requesting
+let requestURL = 'https://pokeapi.co/api/v2/pokemon/' // Base URL of the pokemon we are requesting
 let requestedPokemon;
 let returnData;
 let pokemonName;
@@ -21,6 +21,7 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
     console.log('hello outside');
     $('#search').on('click', function(e) {
       e.preventDefault();
+      requestURL = 'https://pokeapi.co/api/v2/pokemon/'
       console.log('hello inside');
       requestedPokemon = $('#poke-search').val().toLowerCase();
       requestURL += requestedPokemon;
@@ -70,7 +71,7 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
       weight: pokemonWeight
     };
     var template = Handlebars.compile($('#pokedexTemplate').html())(info);
-    $('#pokedex').append(template);
+    $('#pokedex').prepend(template);
     $('main').hide();
     $('#pokedex').fadeIn();
 
