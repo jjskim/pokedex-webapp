@@ -22,6 +22,7 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
     $('#search').on('click', function(e) {
       e.preventDefault();
       requestURL = 'https://pokeapi.co/api/v2/pokemon/'
+      pokemonStats = [];
       console.log('hello inside');
       requestedPokemon = $('#poke-search').val().toLowerCase();
       requestURL += requestedPokemon;
