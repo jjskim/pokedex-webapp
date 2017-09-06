@@ -9,7 +9,7 @@ header{
   width: 89%;
   min-width: 350px;
   height: 90px;
-  background-color: #f43333;
+  background-color: #f43333 ;
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -116,6 +116,9 @@ header img:hover{
   #faceClick1{
     height: 80px;
     width: 60px;
+    position: absolute;
+    top: 180px;
+    left: 180px;
   }
   #faceClick2{
     height: 80px;
@@ -213,7 +216,7 @@ header img:hover{
     left: 40%;
   }
 }
-/* above 700px*/
+
 @media screen and (min-width: 700px) {
   #faceClick1{
     height: 23%;
