@@ -1,21 +1,18 @@
 'use strict';
 
+const pg = require('pg');
+const fs = require('fs');
 const express = require('express');
-const app = express();
-const bodyParser = require('body-parser').urlencoded({extended: true});
-
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
+const app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 app.get('/', function(req, res) {
   res.sendFile('public/index.html', {root: '.'});
 });
 
-app.use(function(req, res) {
-  res.status(404).send('File Not Found! Try Again.');
-});
-
-app.listen(PORT, function() {
- console.log('We are serving this app on localhost:' + PORT);
-});
+app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));
