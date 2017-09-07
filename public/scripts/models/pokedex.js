@@ -84,10 +84,19 @@ let pokemonDescription;
         type: 'bar',
         data: {
           labels: ['Hp', 'Atk', 'Def', 'Sp Atk', 'Sp Def', 'Spd'],
-          datasets: [{
-            data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
-            backgroundColor: "#0061ff"
-          }]
+          datasets: [
+            {
+              data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
+              backgroundColor: [
+                '#1a8cff',
+                '#3399ff',
+                '#4da6ff',
+                '#66b3ff',
+                '#80bfff',
+                '#99ccff'
+              ]
+            }
+          ]
         }
       })
     });
@@ -97,6 +106,8 @@ let pokemonDescription;
     $('#pokedex').fadeIn();
 
   };
+
+
 
   Chart.defaults.global.legend.display = false;
   Chart.defaults.global.tooltips.enabled = false;

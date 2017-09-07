@@ -16,8 +16,9 @@
         </div>
         <p id="pokeDescription">{{pokeDescription}}</p>
         <ul id="pokeSize">
-          <li id="height">Height: {{height}} m</li>
-          <li id="weight">Weight: {{weight}} kg</li>
+          <li id="height"><b>Height:</b> {{height}} m</li>
+          <br />
+          <li id="weight"><b>Weight:</b> {{weight}} kg</li>
         </ul>
         <h3>Type</h3>
         <ul id="pokeTypes">
@@ -30,27 +31,16 @@
 
         <table id="pokeStats">
           <tr>
-            <td class="stats" id="hp">HP: {{pokeHp}}</td>
-            <td class="stats" id="atk">Attack: {{pokeAtk}}</td>
-            <td class="stats" id="def">Defence: {{pokeDef}}</td>
+            <td class="stats" id="hp"><b>HP:</b> {{pokeHp}}</td>
+            <td class="stats" id="atk"><b>Attack:</b> {{pokeAtk}}</td>
+            <td class="stats" id="def"><b>Defence:</b> {{pokeDef}}</td>
           </tr>
           <tr>
-            <td class="stats" id="specialAtk">Special Attack: {{pokeSpecialAtk}}</td>
-            <td class="stats" id="specialDef">Special Defence: {{pokeSpecialDef}}</td>
-            <td class="stats" id="speed">Speed: {{pokeSpeed}}</td>
+            <td class="stats" id="specialAtk"><b>Special Attack:</b> {{pokeSpecialAtk}}</td>
+            <td class="stats" id="specialDef"><b>Special Defence:</b> {{pokeSpecialDef}}</td>
+            <td class="stats" id="speed"><b>Speed:</b> {{pokeSpeed}}</td>
           </tr>
         </table>
-
-        <!-- <ul id="pokeStats">
-          <li class="stats" id="hp">HP: {{pokeHp}}</li>
-          <li class="stats" id="atk">Attack: {{pokeAtk}}</li>
-          <li class="stats" id="def">Defence: {{pokeDef}}</li>
-          <br/>
-          <li class="stats" id="specialAtk">Special Attack: {{pokeSpecialAtk}}</li>
-          <li class="stats" id="specialDef">Special Defence: {{pokeSpecialDef}}</li>
-          <li class="stats" id="speed">Speed: {{pokeSpeed}}</li>
-        </ul> -->
-
 
         <div class="chartContainer">
           <div>
@@ -81,14 +71,6 @@
 
     <div id="pokedex">
     </div>
-
-
-    </div>
-    </div>
-    <!-- <section>
-      <img src="style/indeximg/pokeball.gif" alt="pokeball" />
-    </section> -->
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
