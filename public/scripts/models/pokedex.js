@@ -17,6 +17,15 @@ let pokemonDescription;
 
   const pokemon = {};
 
+  $(document).ready(function() {
+      $('.toggle-nav').click(function(e) {
+          $(this).toggleClass('active');
+          $('.menu ul').toggleClass('active');
+
+          e.preventDefault();
+      });
+  });
+
   pokemon.getPokemonName = function() {
     $('#search').on('click', function(e) {
       e.preventDefault();
@@ -28,6 +37,7 @@ let pokemonDescription;
       pokemon.getPokemonInfo(requestURL);
     });
   };
+
 
   pokemon.getPokemonInfo = function(requestURL) {
     $.ajax({
@@ -111,14 +121,13 @@ let pokemonDescription;
         }
       })
     });
+
     var template = Handlebars.compile($('#pokedexTemplate').html())(info);
     $('#pokedex').prepend(template);
     $('main').hide();
     $('#pokedex').fadeIn();
 
   };
-
-
 
   Chart.defaults.global.legend.display = false;
   Chart.defaults.global.tooltips.enabled = false;
