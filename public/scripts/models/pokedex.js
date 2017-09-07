@@ -19,37 +19,37 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
     Stats: ['HP', 'Attack', 'Defence', 'Special Attack', 'Special Defence', 'Speed'],
     flavorTextIndex: 1,
     nameIndex: 0
-  }
+  },
 
   Japanese: {
     Stats: ['HP', 'こうげき', 'ぼうぎょ', 'とくこう', 'とくぼう', 'すばやさ'],
     flavorTextIndex: 7,
     nameIndex: 8
-  }
+  },
 
   French: {
     Stats: ['PV', 'Attaque', 'Défense', 'Attaque Spéciale', 'Défense Spéciale', 'Vitesse'],
     flavorTextIndex: 5,
     nameIndex: 4
-  }
+  },
 
   German: {
     Stats: ['KP', 'Angriff', 'Verteidigung', 'Spezialangriff', 'Spezialverteidigung', 'Initiative'],
     flavorTextIndex: 4,
     nameIndex: 3
-  }
+  },
 
   Spanish: {
     Stats: ['PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad'],
     flavorTextIndex: 3,
     nameIndex: 2
-  }
+  },
 
   Italian: {
     Stats: ['PS', 'Attacco', 'Difesa', 'Attacco Speciale', 'Difesa Speciale', 'Velocità'],
     flavorTextIndex: 2,
     nameIndex: 1
-  }
+  },
 
 };
 
