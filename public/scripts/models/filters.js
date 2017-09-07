@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-let requestURL = 'https://pokeapi.co/api/v2/pokemon/' // Base URL of the pokemon we are requesting
+let requestURL = 'https://pokeapi.co/api/v2/type' // Base URL of the pokemon we are requesting
 let requestedPokemon;
 let returnData;
 let pokemonName;
@@ -12,71 +12,20 @@ let pokemonWeight;
 let pokemonHeight;
 let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
 let pokemonDescription;
-let language = 'english';
-const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, italian
-
-  English: {
-    Stats: ['HP', 'Attack', 'Defence', 'Special Attack', 'Special Defence', 'Speed'],
-    flavorTextIndex: 1,
-    nameIndex: 0
-  }
-
-  Japanese: {
-    Stats: ['HP', 'こうげき', 'ぼうぎょ', 'とくこう', 'とくぼう', 'すばやさ'],
-    flavorTextIndex: 7,
-    nameIndex: 8
-  }
-
-  French: {
-    Stats: ['PV', 'Attaque', 'Défense', 'Attaque Spéciale', 'Défense Spéciale', 'Vitesse'],
-    flavorTextIndex: 5,
-    nameIndex: 4
-  }
-
-  German: {
-    Stats: ['KP', 'Angriff', 'Verteidigung', 'Spezialangriff', 'Spezialverteidigung', 'Initiative'],
-    flavorTextIndex: 4,
-    nameIndex: 3
-  }
-
-  Spanish: {
-    Stats: ['PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad'],
-    flavorTextIndex: 3,
-    nameIndex: 2
-  }
-
-  Italian: {
-    Stats: ['PS', 'Attacco', 'Difesa', 'Attacco Speciale', 'Difesa Speciale', 'Velocità'],
-    flavorTextIndex: 2,
-    nameIndex: 1
-  }
-
-};
 
 (function(module) {
 
   const pokemon = {};
 
-  $(document).ready(function() {
-      $('.toggle-nav').click(function(e) {
-        e.preventDefault();
-        $(this).toggleClass('active');
-        $('.menu ul').toggleClass('active');
-      });
-  });
   pokemon.getPokemonName = function() {
-    $('.pikapic').hide();
-    $('#search').on('submit', function(e) {
-      $('#search button').hide();
+    $('#search').on('click', function(e) {
       e.preventDefault();
       requestURL = 'https://pokeapi.co/api/v2/pokemon/'
       pokemonStats = []; // emptying the stats array for subsequent searches
       pokemonType = []; // emptying the types array for subsequent searches
       requestedPokemon = $('#poke-search').val().toLowerCase();
       requestURL += requestedPokemon;
-      $('.pikapic').show();
       pokemon.getPokemonInfo(requestURL);
-
     });
   };
 
@@ -111,8 +60,6 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       }
     });
   };
-
-  pokemon.loadInfo
 
   pokemon.makePokedex = function() {
     let info = {
@@ -150,28 +97,17 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
               ]
             }
           ]
-        },
-        scales: {
-          yAxes: [
-            {
-                ticks: {
-                  max: 160,
-                  min: 0,
-                  stepSize: 10
-                }
-            }
-          ]
         }
       })
     });
-
     var template = Handlebars.compile($('#pokedexTemplate').html())(info);
     $('#pokedex').prepend(template);
     $('main').hide();
     $('#pokedex').fadeIn();
-    $('.pikapic').hide();
-    $('#search button').show();
+
   };
+
+
 
   Chart.defaults.global.legend.display = false;
   Chart.defaults.global.tooltips.enabled = false;
