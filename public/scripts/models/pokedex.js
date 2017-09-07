@@ -13,6 +13,17 @@ let pokemonHeight;
 let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
 let pokemonDescription;
 
+let language;
+// english, japanese, french, german, spanish, italian
+let statNames = [
+  ["HP", "Attack", "Defence", "Special Attack", "Special Defence", "Speed"], // English
+  ["HP", "こうげき", "ぼうぎょ", "とくこう", "とくぼう", "すばやさ"] // japanese
+  ["PV", "Attaque", "Défense", "Attaque Spéciale", "Défense Spéciale", "Vitesse"], // french
+  ["KP", "Angriff", "Verteidigung", "Spezialangriff", "Spezialverteidigung", "Initiative"], // german
+  ["PS", "Ataque", "Defensa", "Ataque Especial", "Defensa Especial", "Velocidad"], // spanish
+  ["PS", "Attacco", "Difesa", "Attacco Speciale", "Difesa Speciale", "Velocità"] // italian
+]
+
 (function(module) {
 
   const pokemon = {};
