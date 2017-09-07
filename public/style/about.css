@@ -2,10 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Arimo);
 
 /*html{
-  height: 100%;
+height: 100%;
 }*/
 body{
-  max-width: 1300px;
+  /*max-width: 1300px;*/
   /*max-height: 2000px;*/
   background: #ddd;
   /*background-image: url("aboutImg/stripeBackground.png");*/
@@ -31,7 +31,7 @@ header img:hover{
 #pokeLogo{
   width: 350px;
   height: 80px;
-  padding-left: 105px;
+  margin-left: 105px;
   position: absolute;
   right: 40%;
   cursor: default;
@@ -55,17 +55,16 @@ header img:hover{
     margin-top: 25px;
   }
 }
-
 .carousel{
   width: 89%;
   margin-top: 5px;
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 15px;
+  /*background-image: url("style/aboutImg/teamRocket01.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;*/
 }
-
 .carousel img{
-  /*float: left;*/
   width: 100%;
   min-width: 350px;
 }
@@ -84,47 +83,73 @@ b{
   -webkit-text-stroke-color: yellow;
 }
 
-#faceClick1{
-  border: 3px dashed red;
-  /*display: inline;*/
-  height: 30%;
-  width: 15%;
-  cursor: pointer;
-  position: relative;
-  bottom: 20%;
-  left: 42%;
+.container{
+  /*border: solid 1px blue;*/
+  width: 65%;
+  text-align: center;
+  float: left;
+  text-align: center;
+  margin-left: 19%;
+  margin-bottom: 10px;
 }
-#faceClick2{
-  border: 3px dashed red;
-  /*display: inline;*/
-  height: 30%;
-  width: 15%;
+.container button{
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 10%;
+  padding: 25px 40px;
+  border: none;
+  border-radius: 3px;
   cursor: pointer;
-  position: relative;
-  bottom: 20%;
-  left: 65%;
-
+  background-image: url("aboutImg/buttonImage.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 190% 260%;
 }
-#faceClick3{
-  border: 3px dashed red;
-  /*display: inline;*/
-  height: 30%;
-  width: 15%;
-  cursor: pointer;
-  position: relative;
-  bottom: 30%;
-  left: 17%;
+#faceClicke1{
+  float:left;
+}
+#faceClicke2{
+  float:right;
+}
+.container span {
+    visibility: hidden;
+    width: 100%;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 70%;
+    left: 30%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.container button:hover span {
+  visibility: visible;
+  opacity: 1;
+  font-family: 'Bangers', sans-serif;
+  font-size: 20px;
+}
+.container button:hover{
+  -webkit-transform:scale(1.3);
+  -moz-transform:scale(1.3);
+  -ms-transform:scale(1.3);
+  -o-transform:scale(1.3);
+  transform:scale(1.3);
+  cursor: help;
 }
 
 footer{
   height: 100px;
   width: 89%;
   background-image: url("aboutImg/footerGrass.png");
-  margin-top: 20px;
+  margin-top: 1px;
   margin-left: 20px;
   margin-right: 20px;
   overflow: hidden
-  /*clear: both;*/
 }
 footer img{
   height: 95px;
