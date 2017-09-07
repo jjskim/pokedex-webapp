@@ -22,6 +22,7 @@ $('#backButton' ).on('click', function(e) {
   $( '#faceClick2' ).show('fast');
   $( '#faceClick3' ).show('fast');
   $( '#homeButton' ).show('fast');
+  $( '.container' ).show('fast');
 
   $( '#backButton' ).hide('fast');
   $( '#face1Data' ).hide('fast');
@@ -38,6 +39,7 @@ $('#faceClick1' ).on('click', function(e) {
   $( '#faceClick3' ).hide('fast');
   $( '.carousel p' ).hide('fast');
   $( '#homeButton' ).hide('fast');
+  $( '.container' ).hide('fast');
 
   $( '#backButton' ).show('fast');
   $( '#face1Data' ).show('fast');
@@ -52,6 +54,7 @@ $('#faceClick2' ).on('click', function(e) {
   $( '#faceClick3' ).hide('fast');
   $( '.carousel p' ).hide('fast');
   $( '#homeButton' ).hide('fast');
+  $( '.container' ).hide('fast');
 
   $( '#backButton' ).show('fast');
   $( '#face2Data' ).show('fast');
@@ -66,6 +69,7 @@ $('#faceClick3' ).on('click', function(e) {
   $( '#faceClick1' ).hide('fast');
   $( '.carousel p' ).hide('fast');
   $( '#homeButton' ).hide('fast');
+  $( '.container' ).hide('fast');
 
   $( '#backButton' ).show('fast');
   $( '#face3Data' ).show('fast');
