@@ -1,12 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Bangers);
 @import url(https://fonts.googleapis.com/css?family=Arimo);
 
-/*html{
-height: 100%;
-}*/
 body{
-  /*max-width: 1300px;*/
-  /*max-height: 2000px;*/
   background: #ddd;
   /*background-image: url("aboutImg/stripeBackground.png");*/
 }
