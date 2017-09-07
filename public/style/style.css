@@ -1,6 +1,10 @@
-/** {
-  border: 1px solid black;
+  /** {
+  border: 1px solid red;
 }*/
+
+body {
+  background-image: url(aboutImg/footerGrass.png);
+}
 
 h1 a img {
   width: 99%;
@@ -14,16 +18,21 @@ h1 {
   border-radius: 1em;
   pointer-events: none;
   margin-bottom: 1%;
-  /*border-style: ridge;
-  border-width: thick;*/
 }
 
 h2 {
   text-align: center;
 }
 
-body {
+.active li {
+  display: inline-block;
+  width: 12em;
+}
+
+nav {
+  text-align: center;
   background-image: url(aboutImg/footerGrass.png);
+  height: 30px;
 }
 
 a {
@@ -86,6 +95,7 @@ section img {
 ul li {
   list-style: none;
   display: inline-block;
+
 }
 
 .stats {
@@ -95,16 +105,6 @@ ul li {
 #pokeSprite {
   display: block;
   margin: 0 auto;
-}
-
-footer a {
-  display: block;
-  text-align: center;
-}
-
-footer {
-  background-image: url(aboutImg/footerGrass.png);
-  height: 30px;
 }
 
 #pokeName {
@@ -129,3 +129,64 @@ footer {
   height: 100%;
   width: 100%;
 }
+
+.toggle-nav {
+  display: none;
+}
+
+@media screen and (min-width: 860px) {
+  .menu {
+    width: 100%;
+    padding: 10px;
+
+  }
+}
+
+.menu ul {
+  display: inline-block;
+}
+
+.menu li {
+  margin-right: 9em;
+  list-style: none;
+  font-size: 18px;
+}
+
+.menu a {
+  color: black;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+@media screen and (max-width: 860px) {
+  .menu {
+    position: absolute;
+    top:0;
+    left: 0;
+    display: inline-block;
+
+  }
+  .menu ul.active {
+    display: none;
+  }
+  .menu ul {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 10px 18px;
+    border-radius: 3px;
+  }
+  .menu li {
+    width: 50%;
+  }
+  .toggle-nav {
+    padding: 20px;
+    float: left;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 30px;
+  }
