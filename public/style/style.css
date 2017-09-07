@@ -7,14 +7,15 @@ h1 a img {
 }
 
 h1 {
+  background-image: url(aboutImg/footerGrass.png);
   margin: 0 auto;
-  background-color: green;
+  background-color: white;
   max-width: 60%;
   border-radius: 1em;
   pointer-events: none;
   margin-bottom: 1%;
-  border-style: ridge;
-  border-width: thick;
+  /*border-style: ridge;
+  border-width: thick;*/
 }
 
 h2 {
@@ -22,7 +23,7 @@ h2 {
 }
 
 body {
-  background-color: #ddd;
+  background-image: url(aboutImg/footerGrass.png);
 }
 
 a {
@@ -41,7 +42,11 @@ div input {
   border-radius: 1em;
   outline: none;
 }
+
 button {
+  background: linear-gradient(red, white);
+  width: 15em;
+  height: 3em;
   display: block;
   margin: 0 auto;
   border-radius: 1em;
@@ -64,12 +69,11 @@ button {
 }
 
 section img {
-  max-width: 30%;
-  border-radius: 100%;
-  /*float: right;*/
+  max-width: 100%;
+  border-radius: 30%;
 }
 
-#pokeSprite img{
+#pokeSprite img {
   display: block;
   margin: 0 auto;
 }
@@ -88,17 +92,16 @@ ul li {
   margin-right: 2em;
 }
 
-#pokeDescription {
-  margin-top: 1em;
-  margin-right: 7em;
-  float: right;
-  max-width: 25%;
+#pokeSprite {
+  display: block;
+  margin: 0 auto;
 }
 
 footer a {
   display: block;
   text-align: center;
 }
+
 footer {
   background-image: url(aboutImg/footerGrass.png);
   height: 30px;
@@ -107,15 +110,22 @@ footer {
 #pokeName {
   text-transform: capitalize;
 }
+
 #pokeDiv {
   display: inline-block;
   margin-left: 15%;
   width: 30%;
 }
-@media screen and (max-width: 686px){
+
+@media screen and (max-width: 686px) {
   #pokeDiv {
     display: block;
     margin: 0 auto;
     min-width: 300px;
   }
+}
+
+.chartContainer {
+  height: 100%;
+  width: 100%;
 }

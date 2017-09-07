@@ -11,18 +11,18 @@ let pokemonType = [];
 let pokemonWeight;
 let pokemonHeight;
 let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
-// let pokemonDescription; // get this later
+let pokemonDescription;
 
 (function(module) {
 
   const pokemon = {};
 
   pokemon.getPokemonName = function() {
-    console.log('hello outside');
     $('#search').on('click', function(e) {
       e.preventDefault();
       requestURL = 'https://pokeapi.co/api/v2/pokemon/'
-      console.log('hello inside');
+      pokemonStats = []; // emptying the stats array for subsequent searches
+      pokemonType = []; // emptying the types array for subsequent searches
       requestedPokemon = $('#poke-search').val().toLowerCase();
       requestURL += requestedPokemon;
       pokemon.getPokemonInfo(requestURL);
@@ -30,7 +30,6 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
   };
 
   pokemon.getPokemonInfo = function(requestURL) {
-    // console.log('sending the request');
     $.ajax({
       url: requestURL,
       method: 'GET',
@@ -39,7 +38,6 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
         pokemon.loadPokemonInfo(returnData);
       }
     });
-
   };
 
   pokemon.loadPokemonInfo = function(returnData) {
@@ -53,13 +51,21 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
     for (let j = 0; j < returnData.stats.length; j++) {
       pokemonStats.push(returnData.stats[j].base_stat);
     }
-    pokemon.makePokedex();
+    $.ajax({
+      url: "https://pokeapi.co/api/v2/pokemon-species/" + requestedPokemon,
+      method: 'GET',
+      success: function(data) {
+        pokemonDescription = data.flavor_text_entries[1].flavor_text;
+        pokemon.makePokedex();
+      }
+    });
   };
 
   pokemon.makePokedex = function() {
     let info = {
       pokeName: pokemonName,
       pokeSprite: pokemonSprite,
+      pokeDescription: pokemonDescription,
       pokeHp: pokemonStats[5],
       pokeAtk: pokemonStats[4],
       pokeDef: pokemonStats[3],
@@ -67,15 +73,44 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
       pokeSpecialDef: pokemonStats[1],
       pokeSpeed: pokemonStats[0],
       pokeTypes: pokemonType,
-      height: pokemonHeight,
-      weight: pokemonWeight
+      height: pokemonHeight / 10,
+      weight: pokemonWeight / 10
     };
+
+
+    $(document).ready(function(){
+      var ctx = document.getElementById('pokeChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Hp', 'Atk', 'Def', 'Sp Atk', 'Sp Def', 'Spd'],
+          datasets: [
+            {
+              data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
+              backgroundColor: [
+                '#1a8cff',
+                '#3399ff',
+                '#4da6ff',
+                '#66b3ff',
+                '#80bfff',
+                '#99ccff'
+              ]
+            }
+          ]
+        }
+      })
+    });
     var template = Handlebars.compile($('#pokedexTemplate').html())(info);
     $('#pokedex').prepend(template);
     $('main').hide();
     $('#pokedex').fadeIn();
 
   };
+
+
+
+  Chart.defaults.global.legend.display = false;
+  Chart.defaults.global.tooltips.enabled = false;
 
   module.pokemon = pokemon;
 
