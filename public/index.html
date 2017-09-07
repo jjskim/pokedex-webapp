@@ -1,87 +1,89 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <title>PokeDex Web App</title>
-  <link href="style/style.css" type="text/css" rel="stylesheet" />
-  <link rel="shortcut icon" href="style/indeximg/favicondex.png" type="image/x-icon">
+  <head>
+    <meta charset="utf-8">
+    <title>PokeDex Web App</title>
+    <link href="style/style.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="style/indeximg/favicondex.png" type="image/x-icon">
 
-  <script id="pokedexTemplate" type="text/x-handlebars-template">
+    <script id="pokedexTemplate" type="text/x-handlebars-template">
 
-    <div id="pokeDiv">
-      <h2 id="pokeName">{{pokeName}}</h2>
-      <div>
-        <img id="pokeSprite" src={{pokeSprite}} />
-      </div>
-      <h3>Type</h3>
-      <ul id="pokeTypes">
-      </ul>
-      <h3>Stats</h3>
-
-
-      <ul id="pokeStats">
-        <li class="stats" id="hp">HP: {{pokeHp}}</li>
-        <li class="stats" id="atk">Attack: {{pokeAtk}}</li>
-        <li class="stats" id="def">Defence: {{pokeDef}}</li>
-        <br/>
-        <li class="stats" id="specialAtk">Special Attack: {{pokeSpecialAtk}}</li>
-        <li class="stats" id="specialDef">Special Defence: {{pokeSpecialDef}}</li>
-        <li class="stats" id="speed">Speed: {{pokeSpeed}}</li>
-      </ul>
-
-      <ul id="pokeSize">
-        <li id="height">Height: {{height}} m</li>
-        <li id="weight">Weight: {{weight}} kg</li>
-      </ul>
-
-      <div class="chartContainer">
+      <div id="pokeDiv">
+        <h2 id="pokeName">{{pokeName}}</h2>
         <div>
-          <canvas id="pokeChart"></canvas>
+          <img id="pokeSprite" src={{pokeSprite}} />
+        </div>
+        <p id="pokeDescription">{{pokeDescription}}</p>
+        <ul id="pokeSize">
+          <li id="height"><b>Height:</b> {{height}} m</li>
+          <br />
+          <li id="weight"><b>Weight:</b> {{weight}} kg</li>
+        </ul>
+        <h3>Type</h3>
+        <ul id="pokeTypes">
+          {{#each pokeTypes}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+        <h3>Stats</h3>
+
+
+        <table id="pokeStats">
+          <tr>
+            <td class="stats" id="hp"><b>HP:</b> {{pokeHp}}</td>
+            <td class="stats" id="atk"><b>Attack:</b> {{pokeAtk}}</td>
+            <td class="stats" id="def"><b>Defence:</b> {{pokeDef}}</td>
+          </tr>
+          <tr>
+            <td class="stats" id="specialAtk"><b>Special Attack:</b> {{pokeSpecialAtk}}</td>
+            <td class="stats" id="specialDef"><b>Special Defence:</b> {{pokeSpecialDef}}</td>
+            <td class="stats" id="speed"><b>Speed:</b> {{pokeSpeed}}</td>
+          </tr>
+        </table>
+
+        <div class="chartContainer">
+          <div>
+            <canvas id="pokeChart"></canvas>
+          </div>
         </div>
       </div>
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/170907/7d5715d6b9684c73617781b8390e31b8.png" alt="pokemon-font" alt="pokemon-font" border="0"></a></h1>
+    </header>
+
+    <nav class="menu">
+      <ul class="active">
+          <li class="current-item"><a href="#">Search Type</a></li>
+          <li><a href="about.html">About Us</a></li>
+      </ul>
+
+      <a class="toggle-nav" href="#">&#9776;</a>
+    </nav>
+
+    <form>
+      <div>
+        <input type="text" id="poke-search" placeholder="Enter Pokemon" required>
+      </div>
+      <div>
+        <button type="button" id="search">Search!</button>
+      </div>
+    </form>
+
+    <div id="pokedex">
     </div>
-    <!-- <p id="pokeDescription">{{pokeDescription}}</p> -->
 
-  </script>
-</head>
-
-<body>
-  <header>
-    <h1><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/170907/7d5715d6b9684c73617781b8390e31b8.png" alt="pokemon-font" alt="pokemon-font" border="0"></a></h1>
-  </header>
-
-  <nav class="menu">
-    <ul class="active">
-        <li class="current-item"><a href="#">Search Type</a></li>
-        <li><a href="about.html">About Us</a></li>
-    </ul>
-
-    <a class="toggle-nav" href="#">&#9776;</a>
-</nav>
-
-  <form>
-    <div>
-      <input type="text" id="poke-search" placeholder="Enter Pokemon" required>
-    </div>
-    <div>
-      <button type="button" id="search">Search!</button>
-    </div>
-  </form>
-
-  <div id="pokedex">
-  </div>
-
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
-  <script src="vendor/scripts/handlebars.js"></script>
-  <script src="vendor/scripts/page.js"></script>
-  <script src="scripts/models/pokedex.js"></script>
-  <script>
-    app.pokemon.getPokemonName();
-  </script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+    <script src="vendor/scripts/handlebars.js"></script>
+    <script src="vendor/scripts/page.js"></script>
+    <script src="scripts/models/pokedex.js"></script>
+    <script>
+      app.pokemon.getPokemonName();
+    </script>
+  </body>
 
 </html>
