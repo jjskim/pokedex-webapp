@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-let requestURL = 'https://pokeapi.co/api/v2/pokemon/' // Base URL of the pokemon we are requesting
+let requestURL = 'https://pokeapi.co/api/v2/type' // Base URL of the pokemon we are requesting
 let requestedPokemon;
 let returnData;
 let pokemonName;
@@ -95,17 +95,6 @@ let pokemonDescription;
                 '#80bfff',
                 '#99ccff'
               ]
-            }
-          ]
-        },
-        scales: {
-          yAxes: [
-            {
-                ticks: {
-                  max: 160,
-                  min: 0,
-                  stepSize: 10
-                }
             }
           ]
         }
