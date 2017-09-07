@@ -12,17 +12,46 @@ let pokemonWeight;
 let pokemonHeight;
 let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
 let pokemonDescription;
+let language = 'english';
+const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, italian
 
-let language;
-// english, japanese, french, german, spanish, italian
-let statNames = [
-  ["HP", "Attack", "Defence", "Special Attack", "Special Defence", "Speed"], // English
-  ["HP", "こうげき", "ぼうぎょ", "とくこう", "とくぼう", "すばやさ"] // japanese
-  ["PV", "Attaque", "Défense", "Attaque Spéciale", "Défense Spéciale", "Vitesse"], // french
-  ["KP", "Angriff", "Verteidigung", "Spezialangriff", "Spezialverteidigung", "Initiative"], // german
-  ["PS", "Ataque", "Defensa", "Ataque Especial", "Defensa Especial", "Velocidad"], // spanish
-  ["PS", "Attacco", "Difesa", "Attacco Speciale", "Difesa Speciale", "Velocità"] // italian
-]
+  English: {
+    Stats: ['HP', 'Attack', 'Defence', 'Special Attack', 'Special Defence', 'Speed'],
+    flavorTextIndex: 1,
+    nameIndex: 0
+  }
+
+  Japanese: {
+    Stats: ['HP', 'こうげき', 'ぼうぎょ', 'とくこう', 'とくぼう', 'すばやさ'],
+    flavorTextIndex: 7,
+    nameIndex: 8
+  }
+
+  French: {
+    Stats: ['PV', 'Attaque', 'Défense', 'Attaque Spéciale', 'Défense Spéciale', 'Vitesse'],
+    flavorTextIndex: 5,
+    nameIndex: 4
+  }
+
+  German: {
+    Stats: ['KP', 'Angriff', 'Verteidigung', 'Spezialangriff', 'Spezialverteidigung', 'Initiative'],
+    flavorTextIndex: 4,
+    nameIndex: 3
+  }
+
+  Spanish: {
+    Stats: ['PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad'],
+    flavorTextIndex: 3,
+    nameIndex: 2
+  }
+
+  Italian: {
+    Stats: ['PS', 'Attacco', 'Difesa', 'Attacco Speciale', 'Difesa Speciale', 'Velocità'],
+    flavorTextIndex: 2,
+    nameIndex: 1
+  }
+
+};
 
 (function(module) {
 
@@ -30,10 +59,9 @@ let statNames = [
 
   $(document).ready(function() {
       $('.toggle-nav').click(function(e) {
-          $(this).toggleClass('active');
-          $('.menu ul').toggleClass('active');
-
-          e.preventDefault();
+        e.preventDefault();
+        $(this).toggleClass('active');
+        $('.menu ul').toggleClass('active');
       });
   });
 
@@ -48,7 +76,6 @@ let statNames = [
       pokemon.getPokemonInfo(requestURL);
     });
   };
-
 
   pokemon.getPokemonInfo = function(requestURL) {
     $.ajax({
@@ -81,6 +108,8 @@ let statNames = [
       }
     });
   };
+
+  pokemon.loadInfo
 
   pokemon.makePokedex = function() {
     let info = {
