@@ -1,5 +1,12 @@
 'use strict';
 
+/************
+/* running .gif resize on page .resize(); perhaps after the img.css...
+/*    function needs to reset on page resize
+/* fixed, full-page height boxes on the carousel section for clicking faces
+/*    position: relative or absolute inside the carousel section
+************/
+
 // hide Back button on page load
 $( '#backButton' ).hide();
 $( '#face1Data' ).hide();
@@ -68,7 +75,7 @@ $(function() {
   var img = $("#animate"),
   width = img.get(0).width,
   screenWidth = $(window).width(),
-  duration = 4000;
+  duration = 8000;
 
   function animatePlane() {
     img.css("left", -width).animate({
