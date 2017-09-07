@@ -25,16 +25,19 @@ let pokemonDescription;
           e.preventDefault();
       });
   });
-
   pokemon.getPokemonName = function() {
-    $('#search').on('click', function(e) {
+    $('.pikapic').hide();
+    $('#search').on('submit', function(e) {
+      $('#search button').hide();
       e.preventDefault();
       requestURL = 'https://pokeapi.co/api/v2/pokemon/'
       pokemonStats = []; // emptying the stats array for subsequent searches
       pokemonType = []; // emptying the types array for subsequent searches
       requestedPokemon = $('#poke-search').val().toLowerCase();
       requestURL += requestedPokemon;
+      $('.pikapic').show();
       pokemon.getPokemonInfo(requestURL);
+
     });
   };
 
@@ -115,7 +118,8 @@ let pokemonDescription;
     $('#pokedex').prepend(template);
     $('main').hide();
     $('#pokedex').fadeIn();
-
+    $('.pikapic').hide();
+    $('#search button').show();
   };
 
   Chart.defaults.global.legend.display = false;
