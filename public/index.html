@@ -50,6 +50,7 @@
       </div>
     </script>
   </head>
+
   <body>
     <header>
       <h1><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/170907/7d5715d6b9684c73617781b8390e31b8.png" alt="pokemon-font" alt="pokemon-font" border="0"></a></h1>
@@ -57,21 +58,22 @@
 
     <nav class="menu">
       <ul class="active">
-          <li class="current-item"><a href="#">Search Type</a></li>
-          <li><a href="about.html">About Us</a></li>
+        <li class="current-item"><a href="#">Search Type</a></li>
+        <li><a href="about.html">About Us</a></li>
       </ul>
-
       <a class="toggle-nav" href="#">&#9776;</a>
     </nav>
 
-    <form>
+    <form id="search">
       <div>
         <input type="text" id="poke-search" placeholder="Enter Pokemon" required>
       </div>
       <div>
-        <button type="button" id="search">Search!</button>
+        <button type="submit">Search!</button>
       </div>
-
+      <div class="pikapic" style="text-align:center;">
+        <img class="pikapic" src="style/indeximg/pikarun.gif" />
+      </div>
       <select id="language-filter">
         <option value="English">English</option>
         <option value="Japanese">Japanese</option>
@@ -86,7 +88,6 @@
     </div>
 
     <div id="filter-search">
-
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -98,5 +99,4 @@
       app.pokemon.getPokemonName();
     </script>
   </body>
-
 </html>
