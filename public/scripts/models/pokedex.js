@@ -18,7 +18,6 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
   const pokemon = {};
 
   pokemon.getPokemonName = function() {
-    console.log('hello outside');
     $('#search').on('click', function(e) {
       e.preventDefault();
       requestURL = 'https://pokeapi.co/api/v2/pokemon/'
@@ -31,7 +30,6 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
   };
 
   pokemon.getPokemonInfo = function(requestURL) {
-    // console.log('sending the request');
     $.ajax({
       url: requestURL,
       method: 'GET',
@@ -71,12 +69,29 @@ let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
       height: pokemonHeight,
       weight: pokemonWeight
     };
+
+
+    $(document).ready(function(){
+      var ctx = document.getElementById('pokeChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Hp', 'Atk', 'Def', 'Sp Atk', 'Sp Def', 'Spd'],
+          datasets: [{
+            data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
+            backgroundColor: "#0061ff"
+          }]
+        }
+      })
+    });
     var template = Handlebars.compile($('#pokedexTemplate').html())(info);
     $('#pokedex').prepend(template);
     $('main').hide();
     $('#pokedex').fadeIn();
 
   };
+Chart.defaults.global.legend.display = false;
+Chart.defaults.global.tooltips.enabled = false;
 
   module.pokemon = pokemon;
 
