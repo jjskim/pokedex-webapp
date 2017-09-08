@@ -21,6 +21,14 @@ h1 {
 h2 {
   text-align: center;
 }
+#searchPlz {
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Bangers';
+  -webkit-text-stroke-width: 0.3px;
+  -webkit-text-stroke-color: blue;
+  color: yellow;
+}
 
 .active li {
   display: inline-block;
