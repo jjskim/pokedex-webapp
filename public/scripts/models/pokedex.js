@@ -58,11 +58,11 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
   const pokemon = {};
 
   $(document).ready(function() {
-      $('.toggle-nav').click(function(e) {
-        e.preventDefault();
-        $(this).toggleClass('active');
-        $('.menu ul').toggleClass('active');
-      });
+    $('.toggle-nav').click(function(e) {
+      e.preventDefault();
+      $(this).toggleClass('active');
+      $('.menu ul').toggleClass('active');
+    });
   });
   pokemon.getPokemonName = function() {
     $('.pikapic').hide();
@@ -131,36 +131,32 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
     };
 
 
-    $(document).ready(function(){
+    $(document).ready(function() {
       var ctx = document.getElementById('pokeChart').getContext('2d');
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
           labels: ['Hp', 'Atk', 'Def', 'Sp Atk', 'Sp Def', 'Spd'],
-          datasets: [
-            {
-              data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
-              backgroundColor: [
-                '#1a8cff',
-                '#3399ff',
-                '#4da6ff',
-                '#66b3ff',
-                '#80bfff',
-                '#99ccff'
-              ]
-            }
-          ]
+          datasets: [{
+            data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
+            backgroundColor: [
+              '#1a8cff',
+              '#3399ff',
+              '#4da6ff',
+              '#66b3ff',
+              '#80bfff',
+              '#99ccff'
+            ]
+          }]
         },
-        scales: {
-          yAxes: [
-            {
-                ticks: {
-                  max: 160,
-                  min: 0,
-                  stepSize: 10
-                }
-            }
-          ]
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
         }
       })
     });
