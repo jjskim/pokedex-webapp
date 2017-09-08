@@ -180,7 +180,6 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          // labels: languageKey.stats,
           labels: ['Hp', 'Atk', 'Def', 'Sp Atk', 'Sp Def', 'Spd'],
           datasets: [{
             data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
