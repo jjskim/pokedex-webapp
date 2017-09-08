@@ -22,7 +22,6 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
     flavorTextIndex: 1,
     nameIndex: 0,
     typeIndex: 6
-
   },
 
   Japanese: {
@@ -123,10 +122,10 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
             method: 'GET',
             success: function(data) {
               pokemonType.push(data.names[languageKey.typeIndex].name);
-              pokemon.loadPokemonInfo(returnData);
             }
           });
         }
+        pokemon.loadPokemonInfo(returnData);
       }
     });
   };
@@ -148,8 +147,6 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       }
     });
   };
-
-  pokemon.loadInfo
 
   pokemon.makePokedex = function() {
     let info = {
@@ -183,7 +180,7 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: languageKey.stats,
+          // labels: languageKey.stats,
           labels: ['Hp', 'Atk', 'Def', 'Sp Atk', 'Sp Def', 'Spd'],
           datasets: [{
             data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
@@ -211,7 +208,6 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
 
     var template = Handlebars.compile($('#pokedexTemplate').html())(info);
     $('#pokedex').prepend(template);
-    $('main').hide();
     $('#pokedex').fadeIn();
     $('.pikapic').hide();
     $('#search button').show();
