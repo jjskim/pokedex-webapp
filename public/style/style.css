@@ -76,6 +76,7 @@ button {
   margin-bottom: 0.5em;
   border-style: ridge;
   border-width: thick;
+  margin-top: 2%;
 }
 
 #poke-search[type="text"] {
