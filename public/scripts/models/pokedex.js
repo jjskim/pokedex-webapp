@@ -21,7 +21,8 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
     stats: ['HP', 'Attack', 'Defence', 'Special Attack', 'Special Defence', 'Speed'],
     labels: ['Height', 'Weight', 'Type', 'Stats'],
     flavorTextIndex: 1,
-    nameIndex: 0
+    nameIndex: 0,
+    typeIndex: 6
 
   },
 
@@ -29,35 +30,40 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
     stats: ['HP', 'こうげき', 'ぼうぎょ', 'とくこう', 'とくぼう', 'すばやさ'],
     labels: ['高さ', '重量', 'タイプ', '値'],
     flavorTextIndex: 7,
-    nameIndex: 8
+    nameIndex: 8,
+    typeIndex: 0
   },
 
   French: {
     stats: ['PV', 'Attaque', 'Défense', 'Attaque Spéciale', 'Défense Spéciale', 'Vitesse'],
     labels: ['La taille', 'Poids', 'Type', 'Valeurs'],
     flavorTextIndex: 5,
-    nameIndex: 4
+    nameIndex: 4,
+    typeIndex: 2
   },
 
   German: {
     stats: ['KP', 'Angriff', 'Verteidigung', 'Spezialangriff', 'Spezialverteidigung', 'Initiative'],
     labels: ['Höhe', 'Gewicht', 'Art', 'Werte'],
     flavorTextIndex: 4,
-    nameIndex: 3
+    nameIndex: 3,
+    typeIndex: 3
   },
 
   Spanish: {
     stats: ['PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad'],
     labels: ['Altura', 'Peso', 'Tipo', 'Valores'],
     flavorTextIndex: 3,
-    nameIndex: 2
+    nameIndex: 2,
+    typeIndex: 4
   },
 
   Italian: {
     stats: ['PS', 'Attacco', 'Difesa', 'Attacco Speciale', 'Difesa Speciale', 'Velocità'],
     labels: ['Altezza', 'Peso', 'Tipo', 'Valori'],
     flavorTextIndex: 2,
-    nameIndex: 1
+    nameIndex: 1,
+    typeIndex: 5
   },
 
 };
@@ -112,51 +118,62 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       method: 'GET',
       success: function(data) {
         returnData = data;
+
         for (let typeIndex = 0; typeIndex < data.types.length; typeIndex++) {
-          if (language === 'English') {
-            pokemonType.push(data.types[typeIndex].type.name);
-          } else if (language === 'Japanese') {
-            $.ajax({
-              url: data.types[typeIndex].type.url,
-              method: 'GET',
-              success: function(data) {
-                pokemonType.push(data.names[0].name);
-              }
-            });
-          } else if (language === 'French') {
-            $.ajax({
-              url: data.types[typeIndex].type.url,
-              method: 'GET',
-              success: function(data) {
-                pokemonType.push(data.names[2].name);
-              }
-            });
-          } else if (language === 'German') {
-            $.ajax({
-              url: data.types[typeIndex].type.url,
-              method: 'GET',
-              success: function(data) {
-                pokemonType.push(data.names[3].name);
-              }
-            });
-          } else if (language === 'Spanish') {
-            $.ajax({
-              url: data.types[typeIndex].type.url,
-              method: 'GET',
-              success: function(data) {
-                pokemonType.push(data.names[4].name);
-              }
-            });
-          } else if (language === 'Italian') {
-            $.ajax({
-              url: data.types[typeIndex].type.url,
-              method: 'GET',
-              success: function(data) {
-                pokemonType.push(data.names[5].name);
-              }
-            });
-          }
+          $.ajax({
+            url: data.types[typeIndex].type.url,
+            method: 'GET',
+            success: function(data) {
+              pokemonType.push(data.names[languageKey.typeIndex].name);
+            }
+          });
         }
+
+        // for (let typeIndex = 0; typeIndex < data.types.length; typeIndex++) {
+        //   if (language === 'English') {
+        //     pokemonType.push(data.types[typeIndex].type.name);
+        //   } else if (language === 'Japanese') {
+        //     $.ajax({
+        //       url: data.types[typeIndex].type.url,
+        //       method: 'GET',
+        //       success: function(data) {
+        //         pokemonType.push(data.names[0].name);
+        //       }
+        //     });
+        //   } else if (language === 'French') {
+        //     $.ajax({
+        //       url: data.types[typeIndex].type.url,
+        //       method: 'GET',
+        //       success: function(data) {
+        //         pokemonType.push(data.names[2].name);
+        //       }
+        //     });
+        //   } else if (language === 'German') {
+        //     $.ajax({
+        //       url: data.types[typeIndex].type.url,
+        //       method: 'GET',
+        //       success: function(data) {
+        //         pokemonType.push(data.names[3].name);
+        //       }
+        //     });
+        //   } else if (language === 'Spanish') {
+        //     $.ajax({
+        //       url: data.types[typeIndex].type.url,
+        //       method: 'GET',
+        //       success: function(data) {
+        //         pokemonType.push(data.names[4].name);
+        //       }
+        //     });
+        //   } else if (language === 'Italian') {
+        //     $.ajax({
+        //       url: data.types[typeIndex].type.url,
+        //       method: 'GET',
+        //       success: function(data) {
+        //         pokemonType.push(data.names[5].name);
+        //       }
+        //     });
+        //   }
+        // }
 
         pokemon.loadPokemonInfo(returnData);
       }
@@ -238,6 +255,7 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
+          labels: languageKey.stats,
           labels: ['Hp', 'Atk', 'Def', 'Sp Atk', 'Sp Def', 'Spd'],
           datasets: [{
             data: [pokemonStats[5], pokemonStats[4], pokemonStats[3], pokemonStats[2], pokemonStats[1], pokemonStats[0]],
