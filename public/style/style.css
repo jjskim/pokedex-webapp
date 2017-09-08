@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Bangers);
 
 body {
   background-image: url(aboutImg/footerGrass.png);
@@ -23,7 +24,8 @@ h2 {
 
 .active li {
   display: inline-block;
-  width: 12em;
+  width: 6em;
+  margin-left: 1em;
 }
 
 nav {
@@ -62,7 +64,7 @@ button {
 #poke-search {
   width: 50%;
   height: 3em;
-  background-color: black;
+  background-color: #ffe4b2;
   margin-bottom: 0.5em;
   border-style: ridge;
   border-width: thick;
@@ -86,6 +88,7 @@ button {
 }
 
 ul li {
+
   list-style: none;
   display: inline-block;
 
@@ -128,6 +131,12 @@ ul li {
   display: none;
 }
 
+.menu a{
+  font-family: 'Bangers';
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: blue;
+}
+
 @media screen and (min-width: 860px) {
   .menu {
     width: 100%;
@@ -143,7 +152,7 @@ ul li {
 .menu li {
   margin-right: 9em;
   list-style: none;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .menu a {
@@ -153,7 +162,7 @@ ul li {
 
 .menu a:hover {
   text-decoration: none;
-  color: red;
+  color: yellow;
 }
 
 @media screen and (max-width: 860px) {
