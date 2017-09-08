@@ -79,7 +79,7 @@ $(function() {
   var img = $("#animate"),
   width = img.get(0).width,
   screenWidth = $(window).width(),
-  duration = 8000;
+  duration = 9000;
 
   function animatePlane() {
     img.css("left", -width).animate({
