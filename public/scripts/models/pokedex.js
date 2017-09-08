@@ -12,7 +12,7 @@ let pokemonWeight;
 let pokemonHeight;
 let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
 let pokemonDescription;
-let language = 'english';
+let language;
 const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, italian
 
   English: {
@@ -92,7 +92,7 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
   };
 
   pokemon.loadPokemonInfo = function(returnData) {
-    pokemonName = returnData.name;
+    // pokemonName = returnData.name;
     pokemonSprite = returnData.sprites.front_default;
     for (let i = 0; i < returnData.types.length; i++) {
       pokemonType.push(returnData.types[i].type.name);
@@ -106,7 +106,25 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       url: "https://pokeapi.co/api/v2/pokemon-species/" + requestedPokemon,
       method: 'GET',
       success: function(data) {
-        pokemonDescription = data.flavor_text_entries[1].flavor_text;
+        if (language === 'English') {
+          pokemonName = data.names[0].name;
+          pokemonDescription = data.flavor_text_entries[1].flavor_text;
+        } else if (language === 'Japanese') {
+          pokemonName = data.names[8].name;
+          pokemonDescription = data.flavor_text_entries[7].flavor_text;
+        } else if (language === 'French') {
+          pokemonName = data.names[4].name;
+          pokemonDescription = data.flavor_text_entries[5].flavor_text;
+        } else if (language === 'German') {
+          pokemonName = data.names[3].name;
+          pokemonDescription = data.flavor_text_entries[4].flavor_text;
+        } else if (language === 'Spanish') {
+          pokemonName = data.names[2].name;
+          pokemonDescription = data.flavor_text_entries[3].flavor_text;
+        } else if (language === 'Italian') {
+          pokemonName = data.names[1].name;
+          pokemonDescription = data.flavor_text_entries[2].flavor_text;
+        }
         pokemon.makePokedex();
       }
     });
