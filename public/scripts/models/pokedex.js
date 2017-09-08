@@ -12,41 +12,50 @@ let pokemonWeight;
 let pokemonHeight;
 let pokemonStats = []; // speed, spDef, spAtk, def, atk, hp -- in that order
 let pokemonDescription;
+let typeNames = [];
 let language;
+let languageKey;
 const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, italian
 
   English: {
-    Stats: ['HP', 'Attack', 'Defence', 'Special Attack', 'Special Defence', 'Speed'],
+    stats: ['HP', 'Attack', 'Defence', 'Special Attack', 'Special Defence', 'Speed'],
+    labels: ['Height', 'Weight', 'Type', 'Stats'],
     flavorTextIndex: 1,
     nameIndex: 0
+
   },
 
   Japanese: {
-    Stats: ['HP', 'こうげき', 'ぼうぎょ', 'とくこう', 'とくぼう', 'すばやさ'],
+    stats: ['HP', 'こうげき', 'ぼうぎょ', 'とくこう', 'とくぼう', 'すばやさ'],
+    labels: ['高さ', '重量', 'タイプ', '値'],
     flavorTextIndex: 7,
     nameIndex: 8
   },
 
   French: {
-    Stats: ['PV', 'Attaque', 'Défense', 'Attaque Spéciale', 'Défense Spéciale', 'Vitesse'],
+    stats: ['PV', 'Attaque', 'Défense', 'Attaque Spéciale', 'Défense Spéciale', 'Vitesse'],
+    labels: ['La taille', 'Poids', 'Type', 'Valeurs'],
     flavorTextIndex: 5,
     nameIndex: 4
   },
 
   German: {
-    Stats: ['KP', 'Angriff', 'Verteidigung', 'Spezialangriff', 'Spezialverteidigung', 'Initiative'],
+    stats: ['KP', 'Angriff', 'Verteidigung', 'Spezialangriff', 'Spezialverteidigung', 'Initiative'],
+    labels: ['Höhe', 'Gewicht', 'Art', 'Werte'],
     flavorTextIndex: 4,
     nameIndex: 3
   },
 
   Spanish: {
-    Stats: ['PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad'],
+    stats: ['PS', 'Ataque', 'Defensa', 'Ataque Especial', 'Defensa Especial', 'Velocidad'],
+    labels: ['Altura', 'Peso', 'Tipo', 'Valores'],
     flavorTextIndex: 3,
     nameIndex: 2
   },
 
   Italian: {
-    Stats: ['PS', 'Attacco', 'Difesa', 'Attacco Speciale', 'Difesa Speciale', 'Velocità'],
+    stats: ['PS', 'Attacco', 'Difesa', 'Attacco Speciale', 'Difesa Speciale', 'Velocità'],
+    labels: ['Altezza', 'Peso', 'Tipo', 'Valori'],
     flavorTextIndex: 2,
     nameIndex: 1
   },
@@ -74,10 +83,27 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       pokemonType = []; // emptying the types array for subsequent searches
       requestedPokemon = $('#poke-search').val().toLowerCase();
       language = $('#language-filter').val();
+      pokemon.setLanguageKey(language);
       requestURL += requestedPokemon;
       $('.pikapic').show();
       pokemon.getPokemonInfo(requestURL);
     });
+  };
+
+  pokemon.setLanguageKey = function(language) {
+    if (language === "English") {
+      languageKey = LANGUAGE_MASTER_KEY.English;
+    } else if (language === "Japanese") {
+      languageKey = LANGUAGE_MASTER_KEY.Japanese;
+    } else if (language === "French") {
+      languageKey = LANGUAGE_MASTER_KEY.French;
+    } else if (language === "German") {
+      languageKey = LANGUAGE_MASTER_KEY.German;
+    } else if (language === "Spanish") {
+      languageKey = LANGUAGE_MASTER_KEY.Spanish;
+    } else if (language === "Italian") {
+      languageKey = LANGUAGE_MASTER_KEY.Italian;
+    }
   };
 
   pokemon.getPokemonInfo = function(requestURL) {
@@ -86,6 +112,52 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       method: 'GET',
       success: function(data) {
         returnData = data;
+        for (let typeIndex = 0; typeIndex < data.types.length; typeIndex++) {
+          if (language === 'English') {
+            pokemonType.push(data.types[typeIndex].type.name);
+          } else if (language === 'Japanese') {
+            $.ajax({
+              url: data.types[typeIndex].type.url,
+              method: 'GET',
+              success: function(data) {
+                pokemonType.push(data.names[0].name);
+              }
+            });
+          } else if (language === 'French') {
+            $.ajax({
+              url: data.types[typeIndex].type.url,
+              method: 'GET',
+              success: function(data) {
+                pokemonType.push(data.names[2].name);
+              }
+            });
+          } else if (language === 'German') {
+            $.ajax({
+              url: data.types[typeIndex].type.url,
+              method: 'GET',
+              success: function(data) {
+                pokemonType.push(data.names[3].name);
+              }
+            });
+          } else if (language === 'Spanish') {
+            $.ajax({
+              url: data.types[typeIndex].type.url,
+              method: 'GET',
+              success: function(data) {
+                pokemonType.push(data.names[4].name);
+              }
+            });
+          } else if (language === 'Italian') {
+            $.ajax({
+              url: data.types[typeIndex].type.url,
+              method: 'GET',
+              success: function(data) {
+                pokemonType.push(data.names[5].name);
+              }
+            });
+          }
+        }
+
         pokemon.loadPokemonInfo(returnData);
       }
     });
@@ -94,9 +166,11 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
   pokemon.loadPokemonInfo = function(returnData) {
     // pokemonName = returnData.name;
     pokemonSprite = returnData.sprites.front_default;
-    for (let i = 0; i < returnData.types.length; i++) {
-      pokemonType.push(returnData.types[i].type.name);
-    }
+
+    // for (let i = 0; i < returnData.types.length; i++) {
+    //   pokemonType.push(returnData.types[i].type.name);
+    // }
+
     pokemonHeight = returnData.height;
     pokemonWeight = returnData.weight;
     for (let j = 0; j < returnData.stats.length; j++) {
@@ -145,7 +219,17 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       pokeSpeed: pokemonStats[0],
       pokeTypes: pokemonType,
       height: pokemonHeight / 10,
-      weight: pokemonWeight / 10
+      weight: pokemonWeight / 10,
+      heightTitle: languageKey.labels[0],
+      weightTitle: languageKey.labels[1],
+      typeTitle: languageKey.labels[2],
+      statsTitle: languageKey.labels[3],
+      hpTitle: languageKey.stats[0],
+      atkTitle: languageKey.stats[1],
+      defTitle: languageKey.stats[2],
+      spAtkTitle: languageKey.stats[3],
+      spDefTitle: languageKey.stats[4],
+      speedTitle: languageKey.stats[5]
     };
 
 
