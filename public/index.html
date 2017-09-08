@@ -16,29 +16,29 @@
         </div>
         <p id="pokeDescription">{{pokeDescription}}</p>
         <ul id="pokeSize">
-          <li id="height"><b>Height:</b> {{height}} m</li>
+          <li id="height"><b>{{heightTitle}}</b> {{height}} m</li>
           <br />
-          <li id="weight"><b>Weight:</b> {{weight}} kg</li>
+          <li id="weight"><b>{{weightTitle}}</b> {{weight}} kg</li>
         </ul>
-        <h3>Type</h3>
+        <h3>{{typeTitle}}</h3>
         <ul id="pokeTypes">
           {{#each pokeTypes}}
           <li>{{this}}</li>
           {{/each}}
         </ul>
-        <h3>Stats</h3>
+        <h3>{{statsTitle}}</h3>
 
 
         <table id="pokeStats">
           <tr>
-            <td class="stats" id="hp"><b>HP:</b> {{pokeHp}}</td>
-            <td class="stats" id="atk"><b>Attack:</b> {{pokeAtk}}</td>
-            <td class="stats" id="def"><b>Defence:</b> {{pokeDef}}</td>
+            <td class="stats" id="hp"><b>{{hpTitle}}:</b> {{pokeHp}}</td>
+            <td class="stats" id="atk"><b>{{atkTitle}}:</b> {{pokeAtk}}</td>
+            <td class="stats" id="def"><b>{{defTitle}}:</b> {{pokeDef}}</td>
           </tr>
           <tr>
-            <td class="stats" id="specialAtk"><b>Special Attack:</b> {{pokeSpecialAtk}}</td>
-            <td class="stats" id="specialDef"><b>Special Defence:</b> {{pokeSpecialDef}}</td>
-            <td class="stats" id="speed"><b>Speed:</b> {{pokeSpeed}}</td>
+            <td class="stats" id="specialAtk"><b>{{spAtkTitle}}:</b> {{pokeSpecialAtk}}</td>
+            <td class="stats" id="specialDef"><b>{{spDefTitle}}:</b> {{pokeSpecialDef}}</td>
+            <td class="stats" id="speed"><b>{{speedTitle}}:</b> {{pokeSpeed}}</td>
           </tr>
         </table>
 
@@ -59,7 +59,14 @@
 
     <nav class="menu">
       <ul class="active">
-        <li class="current-item"><a href="#">Search Type</a></li>
+        <select id="language-filter">
+          <option value="English">English</option>
+          <option value="Japanese">日本語</option>
+          <option value="French">Français</option>
+          <option value="German">Deutsche</option>
+          <option value="Spanish">Español</option>
+          <option value="Italian">Italiano</option>
+        </select>
         <li><a href="about.html">About Us</a></li>
       </ul>
       <a class="toggle-nav" href="#">&#9776;</a>
@@ -75,20 +82,9 @@
       <div class="pikapic" style="text-align:center;">
         <img class="pikapic" src="style/indeximg/pikarun.gif" />
       </div>
-      <select id="language-filter">
-        <option value="English">English</option>
-        <option value="Japanese">Japanese</option>
-        <option value="French">French</option>
-        <option value="German">German</option>
-        <option value="Spanish">Spanish</option>
-        <option value="Italian">Italian</option>
-      </select>
     </form>
 
     <div id="pokedex">
-    </div>
-
-    <div id="filter-search">
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
