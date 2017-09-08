@@ -73,10 +73,10 @@ const LANGUAGE_MASTER_KEY = { // english, japanese, french, german, spanish, ita
       pokemonStats = []; // emptying the stats array for subsequent searches
       pokemonType = []; // emptying the types array for subsequent searches
       requestedPokemon = $('#poke-search').val().toLowerCase();
+      language = $('#language-filter').val();
       requestURL += requestedPokemon;
       $('.pikapic').show();
       pokemon.getPokemonInfo(requestURL);
-
     });
   };
 
